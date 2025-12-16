@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enver - Build Your Awesome Platform</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+    
+    body { font-family: 'Space Grotesk', sans-serif; }
+    
+    .gradient-bg {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .glass-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .service-card {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .service-card:hover {
+      transform: translateY(-12px) scale(1.02);
+      background: rgba(102, 126, 234, 0.15);
+      box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+    }
+    
+    .btn-glow {
+      box-shadow: 0 0 20px rgba(102, 126, 234, 0.6);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-glow:hover {
+      box-shadow: 0 0 40px rgba(102, 126, 234, 0.9);
+      transform: scale(1.05);
+    }
+    
+    .easter-egg-active {
+      animation: rainbow 3s linear infinite;
+    }
+    
+    @keyframes rainbow {
+      0% { filter: hue-rotate(0deg); }
+      100% { filter: hue-rotate(360deg); }
+    }
+    
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .secret-message {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 2rem;
+      border-radius: 1rem;
+      z-index: 9999;
+      transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+    
+    .secret-message.show {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-[#19191B] via-[#1a1a2e] to-[#16213e] overflow-x-hidden">
+  
+  <!-- Secret Easter Egg Message -->
+  <div id="secretMessage" class="secret-message">
+    <h2 class="text-3xl font-bold text-white mb-2">🎉 Siz sirni topdingiz!</h2>
+    <p class="text-white text-lg">Tabriklaymiz! Siz maxfiy kodni topdingiz! 🚀</p>
+    <button onclick="closeSecret()" class="btn btn-sm mt-4">Yopish</button>
+  </div>
+
+  <!-- Header -->
+  <header class="relative">
+    <nav class="max-w-[90%] mx-auto flex justify-between items-center py-8">
+      <a href="" class="transform hover:scale-110 transition-transform duration-300">
+        <div class="text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
+          ENVER
+        </div>
+      </a>
+      <div>
+        <ul class="hidden lg:flex gap-10 text-white text-lg">
+          <li class="hover:text-purple-400 transition-colors cursor-pointer transform hover:scale-110 duration-200">Home</li>
+          <li class="hover:text-purple-400 transition-colors cursor-pointer transform hover:scale-110 duration-200">Services</li>
+          <li class="hover:text-purple-400 transition-colors cursor-pointer transform hover:scale-110 duration-200">Our Project</li>
+          <li class="hover:text-purple-400 transition-colors cursor-pointer transform hover:scale-110 duration-200">About us</li>
+        </ul>
+      </div>
+      <button class="hidden lg:flex btn btn-primary btn-glow">Contact us</button>
+      <div class="flex lg:hidden text-white text-3xl cursor-pointer hover:text-purple-400 transition-colors">☰</div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="lg:max-w-[95%] lg:mx-auto lg:flex lg:justify-between lg:items-center py-10">
+    <div data-aos="fade-down-right" class="m-10 lg:m-0">
+      <h1 class="text-white font-bold text-6xl lg:text-7xl lg:w-[550px] mt-7 lg:mt-0 leading-tight">
+        Build Your 
+        <span class="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent">
+          Awesome Platform
+        </span>
+      </h1>
+
+      <p class="text-gray-300 text-xl lg:w-[536px] mt-6 leading-relaxed">
+        Enver studio is a digital studio that offers several services such as UI/UX
+        Design to developers, we will provide the best service for those of you who use
+        our services.
+      </p>
+
+      <button class="btn btn-primary btn-glow mt-8 text-lg px-8">Our Services →</button>
+      
+      <div class="flex gap-6 mt-8">
+        <div class="glass-card p-4 rounded-lg">
+          <div class="text-3xl font-bold text-purple-400">250+</div>
+          <div class="text-gray-400 text-sm">Projects</div>
+        </div>
+        <div class="glass-card p-4 rounded-lg">
+          <div class="text-3xl font-bold text-pink-400">100+</div>
+          <div class="text-gray-400 text-sm">Happy Clients</div>
+        </div>
+      </div>
+    </div>
+
+    <div data-aos="fade-left" class="relative m-10 lg:m-0 floating">
+      <div class="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full blur-3xl opacity-30"></div>
+      <div class="relative glass-card p-8 rounded-3xl w-full lg:w-[500px] h-[400px] flex items-center justify-center">
+        <div class="text-center">
+          <div class="text-8xl mb-4">🚀</div>
+          <div class="text-white text-2xl font-bold">Your Platform</div>
+          <div class="text-purple-300 mt-2">Built with Excellence</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <main class="max-w-[90%] mx-auto py-20">
+    <div class="text-center">
+      <h2 class="text-white text-4xl lg:text-6xl font-bold" data-aos="fade-up">
+        Why Enver Is The 
+        <span class="bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
+          Best Choice?
+        </span>
+      </h2>
+      <p class="text-gray-300 text-xl pt-5 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+        Watch this one minute video so you understand why you should use our services!
+      </p>
+    </div>
+  </main>
+
+  <!-- Video Section -->
+  <div class="max-w-[90%] mx-auto pb-20" data-aos="flip-right">
+    <div class="relative glass-card rounded-3xl overflow-hidden h-[400px] group cursor-pointer">
+      <div class="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-pink-600/20 group-hover:from-purple-600/40 group-hover:to-pink-600/40 transition-all duration-500"></div>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+          <div class="text-4xl text-purple-600">▶</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services Section -->
+  <div data-aos="zoom-in" class="text-center py-10">
+    <h2 class="text-4xl lg:text-6xl font-bold text-white max-w-[695px] mx-auto">
+      The Service We 
+      <span class="bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
+        Provide For You
+      </span>
+    </h2>
+  </div>
+
+  <div class="max-w-[95%] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-10 pb-20" data-aos="fade-up">
+    
+    <!-- Service Cards -->
+    <div class="service-card glass-card rounded-2xl p-8 text-center cursor-pointer">
+      <div class="text-6xl mb-4">💻</div>
+      <h3 class="text-white text-2xl font-bold mb-3">Development</h3>
+      <p class="text-gray-300 text-lg">Create a platform with the best and coolest quality from us.</p>
+    </div>
+
+    <div class="service-card glass-card rounded-2xl p-8 text-center cursor-pointer">
+      <div class="text-6xl mb-4">🎨</div>
+      <h3 class="text-white text-2xl font-bold mb-3">UI/UX Designer</h3>
+      <p class="text-gray-300 text-lg">We provide UI/UX Design services, and of course with the best quality</p>
+    </div>
+
+    <div class="service-card glass-card rounded-2xl p-8 text-center cursor-pointer">
+      <div class="text-6xl mb-4">📱</div>
+      <h3 class="text-white text-2xl font-bold mb-3">Mobile Apps</h3>
+      <p class="text-gray-300 text-lg">We provide UI/UX Design services, and of course with the best quality</p>
+    </div>
+
+    <div class="service-card glass-card rounded-2xl p-8 text-center cursor-pointer">
+      <div class="text-6xl mb-4">✏️</div>
+      <h3 class="text-white text-2xl font-bold mb-3">Graphic Designer</h3>
+      <p class="text-gray-300 text-lg">We provide Graphic Design services, with the best designers</p>
+    </div>
+
+    <div class="service-card glass-card rounded-2xl p-8 text-center cursor-pointer">
+      <div class="text-6xl mb-4">🎬</div>
+      <h3 class="text-white text-2xl font-bold mb-3">Motion Graphics</h3>
+      <p class="text-gray-300 text-lg">Create a platform with the best and coolest quality from us.</p>
+    </div>
+
+    <div class="service-card glass-card rounded-2xl p-8 text-center cursor-pointer">
+      <div class="text-6xl mb-4">🚀</div>
+      <h3 class="text-white text-2xl font-bold mb-3">Marketing</h3>
+      <p class="text-gray-300 text-lg">Create a platform with the best and coolest quality from us.</p>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="glass-card max-w-[90%] mx-auto rounded-3xl p-8 mb-10" data-aos="fade-up">
+    <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+      <div class="text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
+        ENVER
+      </div>
+      <ul class="flex flex-col lg:flex-row items-center gap-6 text-gray-300">
+        <li class="hover:text-purple-400 transition-colors cursor-pointer">Support</li>
+        <li class="hover:text-purple-400 transition-colors cursor-pointer">Privacy Policy</li>
+        <li class="hover:text-purple-400 transition-colors cursor-pointer">Terms and Conditions</li>
+      </ul>
+      <h4 class="text-gray-400">© 2020 Enver, All Rights Reserved</h4>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+
+    // Easter Egg: Press "E + N + V" together
+    let keys = [];
+    document.addEventListener('keydown', (e) => {
+      keys.push(e.key.toLowerCase());
+      if (keys.length > 3) keys.shift();
+      
+      if (keys.join('').includes('env')) {
+        document.body.classList.add('easter-egg-active');
+        document.getElementById('secretMessage').classList.add('show');
+        keys = [];
+      }
+    });
+
+    function closeSecret() {
+      document.getElementById('secretMessage').classList.remove('show');
+      setTimeout(() => {
+        document.body.classList.remove('easter-egg-active');
+      }, 500);
+    }
+  </script>
+</body>
+</html>
